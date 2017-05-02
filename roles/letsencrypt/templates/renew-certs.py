@@ -10,13 +10,14 @@ failed = False
 letsencrypt_cert_ids = {{ letsencrypt_cert_ids }}
 
 for site in {{ sites_using_letsencrypt }}:
-    bundled_cert_path = os.path.join('{{ letsencrypt_certs_dir }}', site + '-' + letsencrypt_cert_ids[site] + '-bundled.cert')
+    cert_path = os.path.join('{{ letsencrypt_certs_dir }}', site + '-' + letsencrypt_cert_ids[site] + '.cert')
+    bundled_cert_path = os.path.join('{{ letsencrypt_certs_dir }}', site + '-bundled.cert')
 
     if os.access(bundled_cert_path, os.F_OK):
         stat = os.stat(bundled_cert_path)
         print('Certificate file ' + bundled_cert_path + ' already exists')
 
-        if time.time() - stat.st_mtime < {{ letsencrypt_min_renewal_age }} * 86400:
+        if time.time() - stat.st_mtime < {{ letsencrypt_min_renewal_age }} * 86400 and os.access(bundled_cert_path, os.F_OK):
             print('  The certificate is younger than {{ letsencrypt_min_renewal_age }} days. Not creating a new certificate.\n')
             continue
 
