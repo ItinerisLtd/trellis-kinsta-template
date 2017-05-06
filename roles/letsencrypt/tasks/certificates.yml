@@ -40,6 +40,7 @@
     src: renew-certs.py
     dest: "{{ acme_tiny_data_directory }}/renew-certs.py"
     mode: 0700
+  tags: [wordpress, wordpress-setup, wordpress-setup-nginx, nginx-includes]
 
 - name: Generate the certificates
   command: ./renew-certs.py
@@ -48,3 +49,4 @@
   register: generate_certs
   changed_when: generate_certs.stdout is defined and 'Created' in generate_certs.stdout
   notify: reload nginx
+  tags: [wordpress, wordpress-setup, wordpress-setup-nginx, nginx-includes]
