@@ -51,7 +51,7 @@ Ansible playbooks for setting up a LEMP stack for WordPress.
 
 - Local development environment with Vagrant
 - High-performance production servers
-- Zero-downtime deploys for your [Trellis](https://roots.io/trellis/)-based WordPress sites
+- Zero-downtime deploys for your [Bedrock](https://roots.io/bedrock/)-based WordPress sites
 - [trellis-cli](https://github.com/roots/trellis-cli) for easier management
 
 ## What's included
@@ -103,7 +103,7 @@ The recommended directory structure for a Trellis project looks like:
 ```bash
 example.com/      # → Root folder for the project
 ├── trellis/      # → Your clone of this repository
-└── site/         # → A Trellis-based WordPress site
+└── site/         # → A Bedrock-based WordPress site
     └── web/
         ├── app/  # → WordPress content directory (themes, plugins, etc.)
         └── wp/   # → WordPress core (don't touch!)
@@ -123,10 +123,10 @@ $ mkdir example.com && cd example.com
 $ git clone --depth=1 git@github.com:roots/trellis.git && rm -rf trellis/.git
 ```
 
-3. Install Trellis into the `site` directory:
+3. Install Bedrock into the `site` directory:
 
 ```bash
-$ composer create-project roots/trellis site
+$ composer create-project roots/bedrock site
 ```
 
 ## Local development setup
