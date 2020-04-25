@@ -192,7 +192,7 @@ $ ansible-playbook server.yml -e env=<environment>
 
 ## Deploying to remote servers
 
-1. Add the `repo` (Git URL) of your Trellis WordPress project in the corresponding `group_vars/<environment>/wordpress_sites.yml` file
+1. Add the `repo` (Git URL) of your Bedrock WordPress project in the corresponding `group_vars/<environment>/wordpress_sites.yml` file
 2. Set the `branch` you want to deploy (defaults to `master`)
 
 ### Using trellis-cli
