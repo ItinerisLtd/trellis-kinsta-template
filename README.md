@@ -2,7 +2,7 @@
 
 TODO: Finish this `README.md`.
 
-# Usage
+## Usage
 
 ```
 git clone https://github.com/ItinerisLtd/trellis-kinsta-template
