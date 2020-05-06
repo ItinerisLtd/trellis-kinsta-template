@@ -24,7 +24,7 @@ trellis deploy production
 
 ## FAQ
 
-# How does `ItinerisLtd/trellis-kinsta-template` different from `roots/master`?
+### How does `ItinerisLtd/trellis-kinsta-template` different from `roots/master`?
 
 See: https://github.com/roots/trellis/compare/master...ItinerisLtd:master
 
