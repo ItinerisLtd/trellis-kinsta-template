@@ -1,0 +1,13 @@
+# TODO: We should use https://github.com/roots/trellis/pull/1091 instead.
+# Pull Requests are welcomed.
+---
+
+- name: Setup packages.itineris.co.uk authentication
+  composer:
+    command: config
+    arguments: --global http-basic.packages-itineris-co-uk.herokuapp.com {{ packages_itineris_co_uk_username }} {{ packages_itineris_co_uk_token }}
+    working_dir: "{{ deploy_helper.new_release_path }}"
+  no_log: true
+  when:
+    - packages_itineris_co_uk_username is defined
+    - packages_itineris_co_uk_token is defined

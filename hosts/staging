@@ -1,8 +1,11 @@
 # Add each host to the [staging] group and to a "type" group such as [web] or [db].
 # List each machine only once per [group], even if it will host multiple sites.
 
-[staging]
-your_server_hostname
+# Disabling host key checking is dangerous! Only use it on Kinsta!
+kinsta_staging ansible_host=xxxSSH_IPxxx ansible_port=xxxSTAGING_SSH_PORTxxx
 
 [web]
-your_server_hostname
+kinsta_staging
+
+[staging]
+kinsta_staging

@@ -33,7 +33,8 @@
 
   when: wp_installed.rc == 0
 
-- name: Reload php-fpm
-  shell: sudo service php7.4-fpm reload
-  args:
-    warn: false
+# Disabled because Kinsta doesn't provide `sudo`
+# - name: Reload php-fpm
+#   shell: sudo service php7.4-fpm reload
+#   args:
+#     warn: false

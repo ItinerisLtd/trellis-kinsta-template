@@ -1,0 +1,14 @@
+deploy_initialize_after:
+  - "{{ playbook_dir }}/vendor/roles/itinerisltd.trellis_backup_during_deploy/tasks/main.yml"
+
+deploy_build_after:
+  - "{{ playbook_dir }}/deploy-hooks/build-after.yml"
+  - "{{ playbook_dir }}/roles/deploy/hooks/build-after.yml"
+
+deploy_finalize_after:
+  - "{{ playbook_dir }}/vendor/roles/itinerisltd.trellis_flush_rewrite_rules_during_deploy/tasks/main.yml"
+
+deploy_after:
+  # TODO: Uncomment if using WP Rocket.
+  # - "{{ playbook_dir }}/vendor/roles/itinerisltd.trellis_purge_wp_rocket_cache_during_deploy/tasks/main.yml"
+  - "{{ playbook_dir }}/vendor/roles/itinerisltd.trellis_purge_kinsta_cache_during_deploy/tasks/main.yml"

@@ -3,8 +3,9 @@ vault_mysql_root_password: devpw
 
 # Variables to accompany `group_vars/development/wordpress_sites.yml`
 # Note: the site name (`example.com`) must match up with the site name in the above file.
+#
+# TODO: Use `$ trellis dotenv` to populate `.env` files from Trellis.
 vault_wordpress_sites:
-  example.com:
-    admin_password: admin
+  xxxSITE_KEYxxx:
     env:
-      db_password: example_dbpassword
+      db_password: ''

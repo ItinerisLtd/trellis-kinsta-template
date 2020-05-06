@@ -1,8 +1,11 @@
 # Add each host to the [production] group and to a "type" group such as [web] or [db].
 # List each machine only once per [group], even if it will host multiple sites.
 
-[production]
-your_server_hostname
+# Disabling host key checking is dangerous! Only use it on Kinsta!
+kinsta_production ansible_host=xxxSSH_IPxxx ansible_port=xxxPRODUCTION_SSH_PORTxxx
 
 [web]
-your_server_hostname
+kinsta_production
+
+[production]
+kinsta_production

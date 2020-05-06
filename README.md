@@ -1,189 +1,74 @@
-# Trellis
-[![Release](https://img.shields.io/github/release/roots/trellis.svg?style=flat-square)](https://github.com/roots/trellis/releases)
-[![Build Status](https://img.shields.io/circleci/build/gh/roots/trellis?style=flat-square)](https://circleci.com/gh/roots/trellis)
-[![Follow Roots](https://img.shields.io/twitter/follow/rootswp.svg?style=flat-square&color=1da1f2)](https://twitter.com/rootswp)
+# Trellis Kinsta Template
 
-Ansible playbooks for setting up a LEMP stack for WordPress.
+TODO: Finish this `README.md`.
 
-- Local development environment with Vagrant
-- High-performance production servers
-- Zero-downtime deploys for your [Bedrock](https://roots.io/bedrock/)-based WordPress sites
-- [trellis-cli](https://github.com/roots/trellis-cli) for easier management
+# Usage
 
-## What's included
-
-Trellis will configure a server with the following and more:
-
-* Ubuntu 18.04 Bionic LTS
-* Nginx (with optional FastCGI micro-caching)
-* PHP 7.4
-* MariaDB (a drop-in MySQL replacement)
-* SSL support (scores an A+ on the [Qualys SSL Labs Test](https://www.ssllabs.com/ssltest/))
-* Let's Encrypt for free SSL certificates
-* HTTP/2 support (requires SSL)
-* Composer
-* WP-CLI
-* sSMTP (mail delivery)
-* MailHog
-* Memcached
-* Fail2ban and ferm
-
-## Documentation
-
-Full documentation is available at [https://roots.io/trellis/docs/](https://roots.io/trellis/docs/).
-
-## Requirements
-
-Make sure all dependencies have been installed before moving on:
-
-* [Virtualbox](https://www.virtualbox.org/wiki/Downloads) >= 4.3.10
-* [Vagrant](https://www.vagrantup.com/downloads.html) >= 2.1.0
-* **Recommended**: [trellis-cli](https://github.com/roots/trellis-cli)
-
-**Windows user?** [Read the Windows getting started docs](https://roots.io/getting-started/docs/windows-development-environment-trellis/) for slightly different installation instructions.
-
-## Installation
-
-### Using trellis-cli
-
-Create a new project:
-```bash
-$ trellis new example.com
+```
+git clone https://github.com/ItinerisLtd/trellis-kinsta-template
+cd trellis-kinsta-template
 ```
 
-### Manual
+Search `xxx` placeholder in the whole repo and replace them with actual values.
 
-The recommended directory structure for a Trellis project looks like:
+Search `TODO` in the whole repo and read the todo comments.
 
-```shell
-example.com/      # → Root folder for the project
-├── trellis/      # → Your clone of this repository
-└── site/         # → A Bedrock-based WordPress site
-    └── web/
-        ├── app/  # → WordPress content directory (themes, plugins, etc.)
-        └── wp/   # → WordPress core (don't touch!)
+Then, use [trellis-cli](http://github.com/roots/trellis-cli) to deploy to Kinsta:
+
+```
+trellis init
+trellis galaxy install
+trellis deploy staging
+trellis deploy production
 ```
 
-See a complete working example in the [roots-example-project.com repo](https://github.com/roots/roots-example-project.com).
+## FAQ
 
+# How does `ItinerisLtd/trellis-kinsta-template` different from `roots/master`?
 
+See: https://github.com/roots/trellis/compare/master...ItinerisLtd:master
 
-1. Create a new project directory:
-```plain
-$ mkdir example.com && cd example.com
-```
-2. Install Trellis:
-```plain
-$ git clone --depth=1 git@github.com:roots/trellis.git && rm -rf trellis/.git
-```
-3. Install Bedrock into the `site` directory:
-```plain
-$ composer create-project roots/bedrock site
-```
+### Will you add support for older Ansible versions?
 
-## Local development setup
+Never!
 
-### Using trellis-cli
+Always use `trellis init` to install the correct version of ansible.
 
-1. Review the automatically created site in `group_vars/development/wordpress_sites.yml`
-2. Customize settings if necessary
+### It looks awesome. Where can I find more goodies like this?
 
-Start the Vagrant virtual machine:
-```bash
-$ trellis up
-```
+- Articles on [Itineris' blog](https://www.itineris.co.uk/blog/)
+- More projects on [Itineris' GitHub profile](https://github.com/itinerisltd)
+- More plugins on [Itineris](https://profiles.wordpress.org/itinerisltd/#content-plugins) and [TangRufus](https://profiles.wordpress.org/tangrufus/#content-plugins) wp.org profiles
+- Follow [@itineris_ltd](https://twitter.com/itineris_ltd) and [@TangRufus](https://twitter.com/tangrufus) on Twitter
+- Hire [Itineris](https://www.itineris.co.uk/services/) to build your next awesome site
 
-### Manual
+### Where can I give :star::star::star::star::star: reviews?
 
-1. Configure your WordPress sites in `group_vars/development/wordpress_sites.yml` and in `group_vars/development/vault.yml`
-2. Ensure you're in the trellis directory: `cd trellis`
-3. Run `vagrant up`
+Thanks! Glad you like it. It's important to let my boss knows somebody is using this project. Please consider:
 
-[Read the local development docs](https://roots.io/trellis/docs/local-development-setup/) for more information.
+- tweet something good with mentioning [@itineris_ltd](https://twitter.com/itineris_ltd) and [@TangRufus](https://twitter.com/tangrufus)
+- :star: star this [Github repo](https://github.com/ItinerisLtd/trellis-kinsta-template)
+- :eyes: watch this [Github repo](https://github.com/ItinerisLtd/trellis-kinsta-template/subscription)
+- write blog posts
+- submit [pull requests](https://github.com/ItinerisLtd/trellis-kinsta-template)
+- [hire Itineris](https://www.itineris.co.uk/services/)
 
-## Remote server setup (staging/production)
+## Feedback
 
-A base Ubuntu 18.04 (Bionic) server is required for setting up remote servers.
+**Please provide feedback!** We want to make this library useful in as many projects as possible.
+Please submit an [issue](https://github.com/ItinerisLtd/trellis-kinsta-template/issues/new) and point out what you do and don't like, or fork the project and make suggestions.
+**No issue is too small.**
 
-1. Configure your WordPress sites in `group_vars/<environment>/wordpress_sites.yml` and in `group_vars/<environment>/vault.yml` (see the [Vault docs](https://roots.io/trellis/docs/vault/) for how to encrypt files containing passwords)
-2. Add your server IP/hostnames to `hosts/<environment>`
-3. Specify public SSH keys for `users` in `group_vars/all/users.yml` (see the [SSH Keys docs](https://roots.io/trellis/docs/ssh-keys/))
+## Security
 
-### Using trellis-cli
+If you discover any security related issues, please email [dev@itineris.co.uk](mailto:dev@itineris.co.uk) instead of using the issue tracker.
 
-Initialize Trellis (Virtualenv) environment:
-```bash
-$ trellis init
-```
+## Credits
 
-Provision the server:
-```bash
-$ trellis provision production
-```
+[Trellis Kinsta Template](https://github.com/ItinerisLtd/trellis-kinsta-template) is a [Itineris Limited](https://www.itineris.co.uk/) project created by [Tang Rufus](https://typist.tech). Originally fork from [roots/trellis](https://github.com/roots/trellis)
 
-Or take advantage of its [Digital Ocean](https://roots.io/r/digitalocean) support to create a Droplet *and* provision it in a single command:
-```bash
-$ trellis droplet create production
-```
+Full list of contributors can be found [here](https://github.com/ItinerisLtd/trellis-kinsta-template/graphs/contributors) and [here](https://github.com/roots/trellis/graphs/contributors).
 
-### Manual
+## License
 
-For remote servers, installing Ansible locally is an additional requirement. See the [docs](https://roots.io/trellis/docs/remote-server-setup/#requirements) for more information.
-
-Provision the server:
-```bash
-$ ansible-playbook server.yml -e env=<environment>
-```
-
-[Read the remote server docs](https://roots.io/trellis/docs/remote-server-setup/) for more information.
-
-## Deploying to remote servers
-
-1. Add the `repo` (Git URL) of your Bedrock WordPress project in the corresponding `group_vars/<environment>/wordpress_sites.yml` file
-2. Set the `branch` you want to deploy (defaults to `master`)
-
-### Using trellis-cli
-
-Deploy a site:
-```bash
-$ trellis deploy <environment> <site>
-```
-
-Rollback a deploy:
-```bash
-$ trellis rollback <environment> <site>
-```
-
-### Manual
-
-Deploy a site:
-```bash
-$ ./bin/deploy.sh <environment> <site>
-```
-
-Rollback a deploy:
-```bash
-$ ansible-playbook rollback.yml -e "site=<site> env=<environment>"
-```
-
-[Read the deploys docs](https://roots.io/trellis/docs/deploys/) for more information.
-
-## Contributing
-
-Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
-
-## Trellis sponsors
-
-Help support our open-source development efforts by [becoming a patron](https://www.patreon.com/rootsdev).
-
-<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a> <a href="https://nestify.io/?utm_source=roots&utm_medium=banner&utm_campaign=footer"><img src="https://cdn.roots.io/app/uploads/nestify.svg" alt="Nestify" width="200" height="150"></a>
-
-## Community
-
-Keep track of development and community news.
-
-* Participate on the [Roots Discourse](https://discourse.roots.io/)
-* Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-* Read and subscribe to the [Roots Blog](https://roots.io/blog/)
-* Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
-* Listen to the [Roots Radio podcast](https://roots.io/podcast/)
+[Trellis Kinsta Template](https://github.com/ItinerisLtd/trellis-kinsta-template) is released under the [MIT License](https://opensource.org/licenses/MIT). See: [LICENSE.md](./LICENSE.md)

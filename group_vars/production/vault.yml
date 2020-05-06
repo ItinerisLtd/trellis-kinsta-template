@@ -10,10 +10,9 @@ vault_users:
 # Variables to accompany `group_vars/production/wordpress_sites.yml`
 # Note: the site name (`example.com`) must match up with the site name in the above file.
 vault_wordpress_sites:
-  example.com:
+  xxxSITE_KEYxxx:
     env:
-      db_password: example_dbpassword
-      # Generate your keys here: https://roots.io/salts.html
+      db_password: xxxKINSTA_DB_PASSWORDxxx
       auth_key: "generateme"
       secure_auth_key: "generateme"
       logged_in_key: "generateme"
@@ -22,3 +21,7 @@ vault_wordpress_sites:
       secure_auth_salt: "generateme"
       logged_in_salt: "generateme"
       nonce_salt: "generateme"
+      # TODO: If you site is protected by HTTP basic auth.
+      # http_basic_auth_username: xxxHTTP_BASIC_AUTH_USERNAMExxx
+      # http_basic_auth_password: xxxHTTP_BASIC_AUTH_PASSWORDxxx
+

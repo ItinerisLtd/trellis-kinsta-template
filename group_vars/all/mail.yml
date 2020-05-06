@@ -1,4 +1,7 @@
 # Documentation: https://roots.io/trellis/docs/mail/
+
+# These SMTP settings are useless on Kinsta.
+# Use a WordPress plugin instead, e.g: https://github.com/itinerisltd/wp-phpmailer
 mail_smtp_server: smtp.example.com:587
 mail_admin: admin@example.com
 mail_hostname: example.com

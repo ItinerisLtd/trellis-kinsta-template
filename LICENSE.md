@@ -1,4 +1,7 @@
-Copyright (c) Roots
+MIT License
+
+Copyright (c) 2020      Itineris Limited
+Copyright (c) 2014-2020 Roots
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

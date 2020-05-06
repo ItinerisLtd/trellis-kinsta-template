@@ -6,15 +6,16 @@ users:
   - name: "{{ web_user }}"
     groups:
       - "{{ web_group }}"
-    keys:
-      - "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-      # - https://github.com/username.keys
+    # Keys here is useless. They never uploaded to Kinsta.
+    # Keeping it as an empty array to make Trellis happy.
+    # Use my.kinsta.com to upload your SSH public keys instead.
+    keys: []
+  # Admin user is useless. No such user on Kinsta.
+  # Keeping it as it is to make Trellis happy.
   - name: "{{ admin_user }}"
     groups:
       - sudo
-    keys:
-      - "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-      # - https://github.com/username.keys
+    keys: []
 
 web_user: web
 web_group: www-data

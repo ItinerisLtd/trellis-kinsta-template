@@ -17,3 +17,22 @@
 - name: mailhog
   src: geerlingguy.mailhog
   version: 2.1.4
+
+# See: https://github.com/ItinerisLtd/trellis-backup-during-deploy
+- src: itinerisltd.trellis_backup_during_deploy
+  version: 0.1.2
+
+# TODO: Requires Kinsta Must-use Plugins v2.3.1 or later
+# See: https://kinsta.com/knowledgebase/kinsta-mu-plugin/
+- src: itinerisltd.trellis_purge_kinsta_cache_during_deploy
+  version: 0.4.0
+
+# TODO: Uncomment if using WP Rocket.
+# Requires WP Rocket
+# See: https://github.com/ItinerisLtd/trellis-purge-wp-rocket-cache-during-deploy
+# - src: itinerisltd.trellis_purge_wp_rocket_cache_during_deploy
+#   version: 0.1.1
+
+# See: https://github.com/ItinerisLtd/trellis_flush_rewrite_rules_during_deploy
+- src: itinerisltd.trellis_flush_rewrite_rules_during_deploy
+  version: 0.1.1

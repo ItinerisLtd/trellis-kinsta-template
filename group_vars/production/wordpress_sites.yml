@@ -3,19 +3,24 @@
 # Define accompanying passwords/secrets in group_vars/production/vault.yml
 
 wordpress_sites:
-  example.com:
+  xxxSITE_KEYxxx:
     site_hosts:
-      - canonical: example.com
-        redirects:
-          - www.example.com
-    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
-    repo: git@github.com:example/example.com.git # replace with your Git repo URL
-    repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
+      - canonical: xxxPRODUCTION_DOMAINxxx
+    local_path: ../bedrock # path targeting local Bedrock site directory (relative to Ansible root)
+    repo: xxxBEDROCK_REPOxxx
     branch: master
+    env:
+      # Note that db_password is defined in `group_vars/<env>/vault.yml`
+      db_prefix: xxxDB_PREFIXxxx
+      db_name: xxxKINSTA_SSH_USERNAMExxx
+      db_user: xxxKINSTA_SSH_USERNAMExxx
     multisite:
       enabled: false
     ssl:
-      enabled: false
-      provider: letsencrypt
+      enabled: true
+      provider: self-signed # Doesn't matter. Just to keep Trellis happy
     cache:
       enabled: false
+    # TODO: Change this to sage theme name
+    # See: `deploy-hooks/build-before.yml`
+    # sage: sage
